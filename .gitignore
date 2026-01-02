@@ -1,0 +1,17 @@
+# IDE 配置
+.trae/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+
+# 临时文件
+*.tmp
+*.log
+.DS_Store
