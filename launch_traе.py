@@ -3,6 +3,8 @@
 """
 Trae CN 启动器 - 带开发者工具和调试功能
 
+通过不同的启动参数控制 Trae CN 的启动模式，支持调试模式、开发者模式等。
+
 使用方法：
     python3 launch_traе.py
 
@@ -10,6 +12,7 @@ Trae CN 启动器 - 带开发者工具和调试功能
 1. 带 --inspect 启动（可连接调试器）
 2. 带 --remote-debugging-port 启动（HTTP 调试端口）
 3. 自动打开开发者工具
+4. 创建可执行的启动脚本
 
 作者: AI Assistant
 日期: 2025-01-02

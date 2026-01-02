@@ -34,7 +34,37 @@ ICubeService 提供了访问 Trae CN 核心功能的接口。通过 get_user_inf
 
 ## 项目结构
 
-项目文件组织结构清晰，便于理解和使用。根目录下的主要文件包括 trae_client.py，这是核心客户端实现文件，包含了所有服务类和工具函数；trae_client_test.py 是完整的测试套件文件，包含 28 个单元测试，覆盖所有核心功能；trae_client_docs.md 是详细的技术文档，包含了通信协议分析和使用指南；trae_minimax_integration_plan.md 是任务跟踪文档，记录了项目开发过程中的任务状态；README.md 是本文件，提供项目概览和使用说明。
+项目文件组织结构清晰，便于理解和使用。以下是各个文件的功能说明：
+
+### 核心客户端模块
+
+- **[trae_client.py](file:///Volumes/600g/app1/env-fix/trae_client.py)** - Trae CN 完整客户端，整合 REST API 和 IPC 通信，提供认证管理、模型服务、核心功能访问和聊天功能
+- **[trae_client_final.py](file:///Volumes/600g/app1/env-fix/trae_client_final.py)** - Trae CN 完整客户端实现（最终版），基于日志逆向分析实现所有发现的 API 和通信功能
+
+### IPC 通信模块
+
+- **[ai_agent_analyzer.py](file:///Volumes/600g/app1/env-fix/ai_agent_analyzer.py)** - Trae CN ai-agent 通信协议分析器，通过实际连接 IPC Socket 分析 TowelTransport 协议并测试各个服务的可用方法
+- **[ipc_proxy.py](file:///Volumes/600g/app1/env-fix/ipc_proxy.py)** - Trae CN IPC 通信代理和拦截工具，通过监听 Unix Domain Socket 来拦截和分析 IPC 通信
+- **[vscode_ipc_communicator.py](file:///Volumes/600g/app1/env-fix/vscode_ipc_communicator.py)** - Trae CN VS Code 风格 IPC 通信工具，适配 VS Code/Trae CN 的实际 IPC 协议格式
+- **[towel_transport.py](file:///Volumes/600g/app1/env-fix/towel_transport.py)** - Trae CN TowelTransport 协议实现，基于 ai-agent 日志逆向分析的完整协议实现
+- **[ipc_communicator.py](file:///Volumes/600g/app1/env-fix/ipc_communicator.py)** - Trae CN IPC 通信工具，通过 Unix Domain Socket 与 Trae CN 的 ai-agent 模块进行通信
+
+### 工具和测试模块
+
+- **[launch_traé.py](file:///Volumes/600g/app1/env-fix/launch_traé.py)** - Trae CN 启动器，带开发者工具和调试功能，支持带 --inspect 启动和自动打开开发者工具
+- **[test_traé_client.py](file:///Volumes/600g/app1/env-fix/test_traé_client.py)** - Trae CN 客户端完整测试脚本，测试所有已实现的功能包括 Token 提取、用户信息获取、Solo 功能等
+- **[trae_client_test.py](file:///Volumes/600g/app1/env-fix/trae_client_test.py)** - Trae CN 客户端测试套件，提供对逆向客户端的全面测试，包括认证、API 接口、性能和集成测试
+- **[generate_report.py](file:///Volumes/600g/app1/env-fix/generate_report.py)** - Trae CN 逆向工程分析报告生成工具，基于日志逆向分析和实际测试的结果生成详细报告
+
+### 监控和配置模块
+
+- **[trae_token_monitor.py](file:///Volumes/600g/app1/env-fix/trae_token_monitor.py)** - Trae 与外部系统交互监控工具，用于监控 Trae 应用与外部系统的交互过程，获取 token 等认证信息
+- **[minimax_config.py](file:///Volumes/600g/app1/env-fix/minimax_config.py)** - MiniMax-M2.1 API 配置文件，用于配置 MiniMax 官方 API 访问参数
+- **[minimax_api_test.py](file:///Volumes/600g/app1/env-fix/minimax_api_test.py)** - MiniMax-M2.1 API 测试脚本，用于测试和验证 MiniMax 官方开放平台的 API 访问
+
+### 技术文档
+
+- **[trae_client_docs.md](file:///Volumes/600g/app1/env-fix/trae_client_docs.md)** - 详细的技术文档，包含通信协议分析和使用指南
 
 ## 安装与配置
 
